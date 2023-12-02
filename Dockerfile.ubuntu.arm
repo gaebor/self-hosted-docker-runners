@@ -16,6 +16,7 @@ RUN tar xzf $RELEASE_ASSET && rm $RELEASE_ASSET
 RUN ./bin/installdependencies.sh
 
 USER runner
-RUN ./config.sh --url https://github.com/gaebor/primes --labels $LABELS --url $GITHUB_REPO --token $GITHUB_TOKEN
+ENV GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY=1
+RUN ./config.sh --url https://github.com/gaebor/primes --labels $LABELS --url $GITHUB_REPO --token $
 
 ENTRYPOINT ["bash", "run.sh"]
