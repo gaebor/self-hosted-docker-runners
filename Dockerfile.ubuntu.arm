@@ -17,6 +17,6 @@ RUN ./bin/installdependencies.sh
 
 USER runner
 ENV GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY=1
-RUN ./config.sh --url https://github.com/gaebor/primes --labels $LABELS --url $GITHUB_REPO --token $
+RUN ./config.sh --url https://github.com/gaebor/primes --labels $LABELS --url $GITHUB_REPO --token $GITHUB_TOKEN
 
 ENTRYPOINT ["bash", "run.sh"]
