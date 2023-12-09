@@ -13,7 +13,9 @@ WORKDIR /home/runner/actions-runner
 
 ADD https://github.com/actions/runner/releases/download/v2.311.0/${RELEASE_ASSET} .
 RUN tar xzf $RELEASE_ASSET && rm $RELEASE_ASSET
-RUN ./bin/installdependencies.sh
+RUN ["bash", "bin/installdependencies.sh"]
+
+RUN ["apt-get", "install", "-y", "gcc"]
 
 USER runner
 ENV GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY=1
