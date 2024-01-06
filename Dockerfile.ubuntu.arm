@@ -8,7 +8,7 @@ ARG RELEASE_ASSET=actions-runner-linux-arm-2.311.0.tar.gz
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN ["apt-get", "install", "-y", "sudo"]
+RUN apt-get update && apt-get install -y sudo
 RUN ["useradd", "-ms", "/bin/bash", "runner"]
 RUN ["usermod", "-aG", "sudo", "runner"]
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
